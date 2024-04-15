@@ -2,9 +2,16 @@ body {
   margin: 0;
   padding-top: 50px;
   height: 100vh;
-  background: #ffca00 url("http://bindy.es/Codepen-resources/img/pokedex-wallpaper.jpg") center bottom no-repeat;
+  background: #ffca00 url('./assets/ab5fcc9dbec4abd43e5023663f2502ad.gif') no-repeat;
   background-size: cover;
   font-family: 'Consolas', Arial;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
 
 .Wrapper {
