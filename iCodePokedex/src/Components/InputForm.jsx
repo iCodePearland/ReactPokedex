@@ -1,4 +1,3 @@
-
 function InputForm ({ inputValue, handleInputChange, handleSubmit, isOn }) {
   return (
     <form onSubmit={handleSubmit}>
