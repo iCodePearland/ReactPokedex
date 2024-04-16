@@ -1,4 +1,4 @@
-function ErrorComponent(isError ){
+function ErrorComponent(isError){
   if (!isError) {
     return null;
   }
@@ -9,3 +9,4 @@ function ErrorComponent(isError ){
 };
 
 export default ErrorComponent;
+
