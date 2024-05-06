@@ -1,4 +1,4 @@
-function Buttons({ isOn, setIsOn }){
+function Buttons({ isOn, setIsOn, setImgSrc, setHaveResult }) {
 
   // Handle turn on/off
   const handleTurnOnOff = () => {
@@ -7,19 +7,15 @@ function Buttons({ isOn, setIsOn }){
 
   // Handle clear data
   const handleClearData = () => {
+    // Assuming these states are defined in the parent component
     setImgSrc('');
-    setId('');
-    setName('');
-    setAbility('');
-    setType('');
-    setInputValue('');
     setHaveResult(false);
   };
 
-
- // Handle shiny mode
- const handleShinyMode = () => {
-    if (!haveResult) return;
+  // Handle shiny mode
+  const handleShinyMode = () => {
+    // Assuming these states are defined in the parent component
+    if (!setImgSrc || !setHaveResult) return;
     setImgSrc(prevSrc => {
       if (prevSrc.includes('shiny')) {
         // Remove shiny suffix if it exists
@@ -61,6 +57,6 @@ function Buttons({ isOn, setIsOn }){
       </button>
     </div>
   );
-};
+}
 
 export default Buttons;

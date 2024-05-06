@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import './App.css';
 import InputForm from './Components/InputForm';
 import PokemonDataDisplay from './Components/PokemonDataDisplay';
@@ -14,19 +15,18 @@ const App = () => {
   const [isError, setIsError] = useState(false);
   const [isOn, setIsOn] = useState(false);
 
-  // Fetch data from API
+  // Fetch data from API using Axios
   const fetchData = async (url) => {
     setIsLoading(true);
     setIsError(false);
 
     try {
-      const response = await fetch(url);
-      if (!response.ok) throw new Error('Pokemon not found!');
-      const data = await response.json();
-      setPokemonData(data);
+      const response = await axios.get(url); 
+      setPokemonData(response.data);
     } catch (error) {
       setIsError(true);
     }
+
     setIsLoading(false);
   };
 
@@ -41,7 +41,6 @@ const App = () => {
     fetchData(`https://pokeapi.co/api/v2/pokemon/${inputValue}`);
   };
 
-  // Other event handlers...
   // Add event listeners for random numbers
   useEffect(() => {
     const randomNumberElements = document.querySelectorAll('.randomNumber');
@@ -49,7 +48,6 @@ const App = () => {
       element.addEventListener('click', () => {
         const randomNumber = Math.floor(Math.random() * 1025) + 1;
         setInputValue(randomNumber);
-        handleSubmit(event);
       });
     });
     return () => {
