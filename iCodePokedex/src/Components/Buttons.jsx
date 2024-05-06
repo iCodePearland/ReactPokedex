@@ -7,7 +7,6 @@ function Buttons({ isOn, setIsOn, setImgSrc, setHaveResult }) {
 
   // Handle clear data
   const handleClearData = () => {
-    // Assuming these states are defined in the parent component
     setImgSrc('');
     setHaveResult(false);
   };
